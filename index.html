@@ -1,13 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WUSTL + Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://d3js.org/d3.v6.min.js"></script>
+    <h1>Line Graph Example</h1>
+    SVG element where the line graph will be drawn -->
+    <!-- <svg id="line-chart" width="600" height="400"></svg>
+    <!-- Link to your external JavaScript file -->
+    <!-- <script src="script.js"></script> -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-container">
+      <h1>S. Inoue Lab</h1>
+      <p>Department of Psychiatry</p>
+    </div>
+  </header>
+
+  <main>
+    <h1>Scientific Line Graph</h1>
+    <svg id="line-chart" width="800" height="500"></svg>
+
+    <section class="profile">
+      <div class="profile-image">
+        <img src="headshot Sayaka Inoue.jpg" alt="PI's Photo">
+      </div>
+      <div class="profile-info">
+        <h2>Dr. Sayaka Inoue</h2>
+        <p>Title, Department</p>
+        <p>Brief introduction or biography text goes here. Highlight key achievements, research focus, and contributions.</p>
+      </div>
+    </section>
+
+    <section class="research">
+      <h2>Research Interests</h2>
+      <p>Describe the lab's research areas and how your PI contributes to them.</p>
+    </section>
+
+    <section class="people">
+      <h2>Lab Members</h2>
+      <div class="members-container">
+        <div class="member">
+          <img src="path/to/image.jpg" alt="Member Photo">
+          <p>Member Name</p>
+        </div>
+        <div class="member">
+          <img src="path/to/image.jpg" alt="Member Photo">
+          <p>Member Name</p>
+        </div>
+        <!-- Add more members here -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; [Year] Your Lab Name. All rights reserved.</p>
+  </footer>
+</body>
+
 </html>
