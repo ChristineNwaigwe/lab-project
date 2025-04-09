@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
@@ -12,6 +12,7 @@ body {
     background-color: #a51417;
     height: 2.625rem;
     overflow: hidden;
+    margin-bottom: 1rem;
 }
 .washu-branding.washu-medicine {
     height: auto;
