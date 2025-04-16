@@ -1,24 +1,37 @@
+/* Global Reset & Font */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Layout Container */
 #root {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1rem;
   text-align: center;
 }
 
+/* Logo Styling */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 5em;
+  padding: 1em;
+  transition: filter 300ms ease;
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 1em #9e2a2f90);
 }
 
+.logo.react:hover {
+  filter: drop-shadow(0 0 1em #61dafb);
+}
+
+/* Spinning Animation */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -29,15 +42,91 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
+  .logo.react {
     animation: logo-spin infinite 20s linear;
   }
 }
 
+/* App Container for Inner Content */
+.app-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-top: 80px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.8rem;
+  margin: 0.5rem 0;
+  color: #f3eeee;
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: #f6ebeb;
+}
+
+/* Navigation */
+.nav-links {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.nav-links a {
+  margin: 0 12px;
+  color: #f0f7f4;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+  color: #9e2a2f;
+}
+
+/* Cards / Section Wrapper */
 .card {
-  padding: 2em;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .read-the-docs {
   color: #888;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  border-top: 1px solid #ddd;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    font-size: 0.95rem;
+  }
 }

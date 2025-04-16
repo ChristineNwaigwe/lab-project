@@ -1,34 +1,45 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import wustlLogo from './assets/wustl.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import TeamMembers from "./pages/TeamMembers";
+import Publications from "./pages/Publications";
+import WUSMBanner from "./pages/WUSMBanner";
+import "./App.css";
 
 function App() {
-
   return (
-    <>
-      <div>
-        <a href="https://wustl.edu" target="_blank" rel="noreferrer">
-          <img src={wustlLogo} className="logo wustl" alt="WUSTL logo" />
-        </a>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <WUSMBanner />
+
+      <div className="app-container">
+        <header className="header">
+          <Link to="/">
+            <img src="/wustl-logo.png" alt="WUSTL Logo" className="logo" />
+          </Link>
+          <h1>S Inoue Lab</h1>
+          <p>Department of Psychiatry, Washington University in St. Louis</p>
+
+          {/* 🔗 Nav Links */}
+          <nav className="nav-links">
+            <Link to="/">Home</Link> |{" "}
+            <Link to="/publications">Publications</Link> |{" "}
+            <Link to="/teammembers">Lab Members</Link> {" "}
+          </nav>
+        </header>
+
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/publications" element={<Publications />} />
+            <Route path="/teammembers" element={<TeamMembers />} />
+          </Routes>
+        </main>
+
+        <footer className="footer">
+          <p>&copy; {new Date().getFullYear()} Inoue Lab | Washington University in St. Louis</p>
+        </footer>
       </div>
-      <h1>WUSTL + Vite + React</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the WUSTL, Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;

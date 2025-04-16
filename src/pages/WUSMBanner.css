@@ -1,0 +1,19 @@
+.wusm-simple-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #9E2A2F; /* Dark gray background */
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 1000; /* Make sure it's on top */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.wusm-simple-banner img {
+  height: 32px;
+  width: auto;
+  max-width: 100%;
+}
