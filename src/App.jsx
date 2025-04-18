@@ -4,7 +4,7 @@ import TeamMembers from "./pages/TeamMembers";
 import Publications from "./pages/Publications";
 import WUSMBanner from "./pages/WUSMBanner";
 import "./App.css";
-
+import wustlLogo from './assets/wustl.svg';
 function App() {
   return (
     <Router>
@@ -13,7 +13,7 @@ function App() {
       <div className="app-container">
         <header className="header">
           <Link to="/">
-            <img src="/wustl-logo.png" alt="WUSTL Logo" className="logo" />
+            <img src={wustlLogo} alt="WUSTL Logo" className="logo" />
           </Link>
           <h1>S Inoue Lab</h1>
           <p>Department of Psychiatry, Washington University in St. Louis</p>
