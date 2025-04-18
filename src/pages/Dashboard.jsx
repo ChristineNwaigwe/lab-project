@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "./Dashboard.css";
+import PIPhoto from "../assets/images/PI-photo.jpg";
 
 export default function Dashboard() {
   useEffect(() => {
@@ -31,7 +32,7 @@ export default function Dashboard() {
       <div className="fade-in-section">
         <section className="profile">
           <div className="profile-image">
-            <img src="PI-photo.jpg" alt="Dr. Sayaka Inoue" />
+            img: {PIPhoto}
           </div>
           <div className="profile-info">
             <h2>Dr. Sayaka Inoue</h2>
