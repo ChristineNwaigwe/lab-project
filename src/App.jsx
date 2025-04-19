@@ -1,3 +1,6 @@
+//Special thanks to Jenny Peng '27 for teaching me how to use a router in REACT, this was fun and youre a g//
+//Also huge shoutout to my gf for helping immensly, thank you <3//
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import TeamMembers from "./pages/TeamMembers";

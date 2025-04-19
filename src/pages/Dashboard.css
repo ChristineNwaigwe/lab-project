@@ -1,207 +1,209 @@
-/* General Reset  In collaboration with Jenny Peng my queen frfr*/
+/* -------- Base Reset -------- */
 body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-}
-
-/* Color Palette Based on WUSTL */
-:root {
-    --wustl-red: #9E2A2F; /* WUSTL Red */
-    --wustl-dark-green: #0D3B2A; /* WUSTL Dark Green */
-    --wustl-light-green: #215732; /* WUSTL Light Green */
-    --wustl-gray: #f4f4f4; /* WUSTL light gray */
-}
-
-/* Header Section */
-/* Strobe animation between WUSTL Red and complementary pink */
-@keyframes strobe {
-    0% {
-      background-color: #9E2A2F; /* WUSTL Red */
-    }
-    50% {
-      background-color: #FF4C6A; /* Complementary Pink */
-    }
-    100% {
-      background-color: #9E2A2F; /* Back to WUSTL Red */
-    }
+    color: #222;
+    background-color: #f9f9f9;
+    font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+  }
+  
+  /* -------- WUSTL Brand Palette -------- */
+  :root {
+    --wustl-red: #9E2A2F;
+    --wustl-dark-green: #0D3B2A;
+    --wustl-light-green: #215732;
+    --wustl-gray: #f4f4f4;
+  }
+  
+  /* -------- Header (Strobe Animation Preserved) -------- */
+  @keyframes strobe {
+    0% { background-color: #9E2A2F; }
+    50% { background-color: #FF4C6A; }
+    100% { background-color: #9E2A2F; }
   }
   
   header {
-    margin-top: 0%;
+    margin-top: 0;
     color: white;
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem 1rem;
     position: relative;
-    animation: strobe 5s infinite alternate; /* Apply the strobe animation for the entire header */
-    
-    /* Start with WUSTL Red */
-    background-color: #9E2A2F;  
-    
-    /* Apply the gradient effect for melting effect at the bottom only */
+    animation: strobe 5s infinite alternate;
     background-image: linear-gradient(to bottom, rgba(158, 42, 47, 1), rgba(255, 76, 106, 0));
-    background-size: 100% 200%; /* Ensure the gradient expands vertically */
+    background-size: 100% 200%;
     background-position: top;
-    
-    /* Add a box-shadow only at the bottom to simulate the blur effect */
   }
   
-  /* Hover effect to intensify the melt and blur effect */
-
-  /* Bottom blur effect only */
-  header::after {
+  /* header::after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 0;
     width: 100%;
-    height: 30px; /* Adjust height for the blur area */
-    background: rgba(255, 76, 106, 0.2); /* Subtle fade of pink to transparent */
-    filter: blur(10px); /* Apply the blur effect only at the bottom */
-  }
+    height: 30px;
+    background: rgba(255, 76, 106, 0.2);
+    filter: blur(10px);
+  } */
   
-  /* Header text */
   header h1 {
     font-size: 3rem;
-    margin: 0;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
   }
   
   header p {
     font-size: 1.2rem;
-    margin-top: 10px;
+    opacity: 0.9;
   }
   
-  
-/* Main Section */
-main {
-    padding: 20px;
+  /* -------- Main Section -------- */
+  main {
+    padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.profile-info {
-    background-color: #333;
-}
-
-/* Scientific Line Graph */
-#line-chart {
-    margin-top: 30px;
-    border: 1px solid var(--wustl-light-green);
-    border-radius: 10px;
-}
-
-/* Profile Section */
-.profile {
+  }
+  
+  /* -------- Profile Section -------- */
+  .profile {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: var(--wustl-light-green);
-    color: white;
-    /* border-radius: 10px; */
-    flex-wrap: wrap;  /* Ensure the content wraps on smaller screens */
-}
-
-.profile-image {
-    margin-right: 20px;
-}
-
-.profile-image img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-}
-
-.profile-info {
-    flex-grow: 1;
-}
-
-.profile-info h2 {
-    font-size: 2rem;
-    margin: 0;
-}
-
-.profile-info p {
-    font-size: 1.1rem;
-}
-
-/* Research Section */
-
-
-/* Footer Section */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: var(--wustl-gray);
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 30px;
+    background-color: #14400a;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
     margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .profile-image {
+    flex-shrink: 0;
+  }
+  
+  .profile-image img {
+    border-radius: 8px;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border: 2px solid var(--wustl-light-green);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .profile-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(196, 190, 190, 0.936);
+  }
+  
+  .profile-info {
+    flex: 1;
+    max-width: 700px;
+  }
+  
+  .profile-info h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  .profile-info p {
+    font-size: 1.05rem;
+    color: #faf5f5;
+    line-height: 1.8;
+  }
+  
+  /* -------- Research Section -------- */
+  .research {
+    margin-top: 60px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 6px solid var(--wustl-red);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  
+  .research h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--wustl-dark-green);
+  }
+  
+  .research p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.7;
+  }
+  
+  /* -------- Line Chart -------- */
+  #line-chart {
+    margin-top: 40px;
+    border: 1px solid var(--wustl-light-green);
+    border-radius: 12px;
+    padding: 20px;
+    background: #ffffff;
+  }
+  
+  /* -------- Footer -------- */
+  footer {
+    text-align: center;
+    padding: 16px 0;
+    background-color: var(--wustl-gray);
     font-size: 0.9rem;
-}
-.fade-in-section {
+    border-top: 2px solid var(--wustl-light-green);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+    margin-top: 60px;
+  }
+  
+  /* -------- Fade-In Animations -------- */
+  .fade-in-section {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1.2s ease-out, transform 1.2s ease-out;
     will-change: opacity, transform;
-}
-
-.fade-in-section.is-visible {
+  }
+  
+  .fade-in-section.is-visible {
     opacity: 1;
     transform: none;
-}
-
-
-/* Mobile Friendly Adjustments */
-@media (max-width: 768px) {
+  }
+  
+  /* -------- Responsive -------- */
+  @media (max-width: 768px) {
     header h1 {
-        font-size: 2rem;
+      font-size: 2.2rem;
     }
-
-    header p {
-        font-size: 1rem;
-    }
-
+  
     .profile {
-        flex-direction: column;  /* Stack the image and info vertically */
-        text-align: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
-
-    .profile-image img {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 15px;
-    }
-
+  
     .profile-info {
-        text-align: center; /* Ensure the text is centered on mobile */
+      max-width: 100%;
     }
-
-    .members-container {
-        grid-template-columns: 1fr 1fr;
+  
+    .profile-image img {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 20px;
     }
-
-    .member img {
-        width: 100px;
-        height: 100px;
-    }
-
+  
     .research {
-        padding: 15px;
+      padding: 20px;
     }
-
-    footer {
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 480px) {
+  }
+  
+  @media (max-width: 480px) {
     header h1 {
-        font-size: 1.5rem;
+      font-size: 1.8rem;
+    }
+  
+    header p {
+      font-size: 1rem;
     }
 
-    header p {
-        font-size: 0.9rem;
-    }
-}
+  }
+  

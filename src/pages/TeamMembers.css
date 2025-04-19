@@ -7,45 +7,69 @@
 }
 
 .people {
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   background-color: var(--wustl-gray);
   text-align: center;
   font-family: var(--font-main);
 }
 
 .people h2 {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   color: var(--wustl-red);
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Search input */
+.search-input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  width: 60%;
+  max-width: 450px;
+  margin: 0 auto 3rem auto;
+  display: block;
+  border: 1.5px solid var(--wustl-light-green);
+  border-radius: 8px;
+  font-family: var(--font-main);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: var(--wustl-red);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(158, 42, 47, 0.15);
 }
 
 /* Member grid */
 .members-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2.5rem;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
 /* Member card */
 .member-profile {
-  background-color: #9E2A2F;
-  border-radius: 10px;
-  padding: 1.5rem 1rem;
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem 1.2rem;
   text-align: center;
   text-decoration: none;
-  color: #fbf5f5;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  color: var(--wustl-dark-green);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e3e3e3;
 }
 
 .member-profile:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
+/* Profile picture */
 .profile-picture {
   width: 120px;
   height: 120px;
@@ -53,17 +77,23 @@
   border-radius: 50%;
   border: 3px solid var(--wustl-light-green);
   margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.member-profile:hover .profile-picture {
+  transform: scale(1.05);
 }
 
 /* Name and role */
 .member-profile p {
-  margin: 0.3rem 0;
+  margin: 0.25rem 0;
   font-size: 1rem;
+  line-height: 1.5;
 }
 
 .member-profile strong {
-  font-size: 1.1rem;
-  color: #fbf5f5;
+  font-size: 1.15rem;
+  color: var(--wustl-red);
 }
 
 /* Fade-in Animation */
@@ -78,10 +108,21 @@
   transform: translateY(0);
 }
 
+/* No results */
+.no-results {
+  font-style: italic;
+  color: #777;
+  margin-top: 2rem;
+}
+
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .people h2 {
-    font-size: 2rem;
+    font-size: 2.25rem;
+  }
+
+  .search-input {
+    width: 80%;
   }
 
   .profile-picture {
@@ -89,31 +130,25 @@
     height: 100px;
   }
 
+  .member-profile {
+    padding: 1.5rem 1rem;
+  }
+
   .member-profile p {
     font-size: 0.95rem;
   }
-}
-.search-input {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  width: 60%;
-  max-width: 400px;
-  margin: 1.5rem auto 2rem auto;
-  display: block;
-  border: 2px solid var(--wustl-light-green);
-  border-radius: 8px;
-  font-family: var(--font-main);
-  transition: border-color 0.3s ease;
+
+  .member-profile strong {
+    font-size: 1rem;
+  }
 }
 
-.search-input:focus {
-  border-color: var(--wustl-red);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(158, 42, 47, 0.2);
-}
+@media (max-width: 480px) {
+  .people h2 {
+    font-size: 2rem;
+  }
 
-.no-results {
-  font-style: italic;
-  color: #777;
-  margin-top: 2rem;
+  .search-input {
+    width: 90%;
+  }
 }
