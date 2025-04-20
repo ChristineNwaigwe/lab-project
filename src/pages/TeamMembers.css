@@ -11,6 +11,7 @@
   background-color: var(--wustl-gray);
   text-align: center;
   font-family: var(--font-main);
+  box-sizing: border-box;
 }
 
 .people h2 {
@@ -19,6 +20,7 @@
   margin-bottom: 2.5rem;
   font-weight: 600;
   letter-spacing: 0.5px;
+  line-height: 1.2;
 }
 
 /* Search input */
@@ -33,6 +35,7 @@
   border-radius: 8px;
   font-family: var(--font-main);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
 .search-input:focus {
@@ -44,11 +47,12 @@
 /* Member grid */
 .members-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 /* Member card */
@@ -62,6 +66,7 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid #e3e3e3;
+  box-sizing: border-box;
 }
 
 .member-profile:hover {
@@ -115,14 +120,16 @@
   margin-top: 2rem;
 }
 
-/* Responsive */
+/* ─────────────────────────────── */
+/*      RESPONSIVE BREAKPOINTS     */
+/* ─────────────────────────────── */
 @media (max-width: 768px) {
   .people h2 {
     font-size: 2.25rem;
   }
 
   .search-input {
-    width: 80%;
+    width: 85%;
   }
 
   .profile-picture {
@@ -144,11 +151,34 @@
 }
 
 @media (max-width: 480px) {
+  .people {
+    padding: 3rem 1rem;
+  }
+
   .people h2 {
     font-size: 2rem;
   }
 
   .search-input {
-    width: 90%;
+    width: 100%;
+  }
+
+  .profile-picture {
+    width: 90px;
+    height: 90px;
+  }
+
+  .member-profile {
+    padding: 1.2rem;
+  }
+
+  .member-profile p {
+    font-size: 0.9rem;
+  }
+
+  .member-profile strong {
+    font-size: 0.95rem;
   }
 }
+
+/* adding mobile responsiveness */

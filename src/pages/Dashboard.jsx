@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "./Dashboard.css";
+import ResearchCarousel from "./ResearchCarousel";
 import PIPhoto from '../assets/SInoue.jpg';
 
 
@@ -57,6 +58,7 @@ export default function Dashboard() {
             projects explore the intersection of neuroplasticity, behavior, and
             disease.
           </p>
+          <ResearchCarousel />
         </section>
       </div>
     </>
