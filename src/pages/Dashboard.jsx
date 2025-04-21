@@ -58,6 +58,9 @@ export default function Dashboard() {
             projects explore the intersection of neuroplasticity, behavior, and
             disease.
           </p>
+        </section>
+        <section className="carousel-container">
+          <h2>Research Highlights</h2>
           <ResearchCarousel />
         </section>
       </div>

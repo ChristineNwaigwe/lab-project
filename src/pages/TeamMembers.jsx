@@ -37,13 +37,13 @@ export default function TeamMembers() {
       name: "Takahiro Sasaki",
       role: "Post-Doctorate Fellow",
       image: takaPhoto,
-      link: "https://example.com/taka-profile",
+      link: "https://scholar.google.co.jp/citations?hl=ja&user=uqCKeacAAAAJ",
     },
     {
       name: "Christine Nwaigwe",
       role: "Research Assistant",
       image: christinePhoto,
-      link: "https://example.com/christine-profile",
+      link: "https://www.linkedin.com/in/christine-nwaigwe-67963a267/",
     },
      {
       name: "Atharv Kulkarni",

@@ -1,20 +1,18 @@
 .carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
     max-width: 800px;
     margin: 2rem auto;
     background: #fff;
     border-radius: 12px;
-    padding: 1rem;
+    padding: 1.5rem;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    flex-direction: column;
+    transition: all 0.5s ease;
   }
   
   .slide {
     text-align: center;
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
   
   .slide img,
@@ -24,6 +22,11 @@
     border-radius: 10px;
     max-height: 400px;
     object-fit: contain;
+    transition: transform 0.4s ease;
+  }
+  
+  .video-slide:hover {
+    transform: scale(1.01);
   }
   
   .caption {
@@ -31,16 +34,17 @@
     font-size: 0.95rem;
     color: #444;
     font-style: italic;
+    transition: all 0.3s ease;
   }
   
   .arrow {
     position: absolute;
     top: 45%;
-    background-color: #9E2A2F;
+    background-color: #9e2a2f;
     color: #fff;
     border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1.4rem;
+    padding: 0.6rem 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
     border-radius: 50%;
     z-index: 2;
@@ -59,6 +63,21 @@
     right: 1rem;
   }
   
+  .fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
   @media (max-width: 600px) {
     .arrow {
       padding: 0.4rem 0.8rem;
@@ -67,6 +86,10 @@
   
     .caption {
       font-size: 0.85rem;
+    }
+  
+    .carousel {
+      padding: 1rem;
     }
   }
   

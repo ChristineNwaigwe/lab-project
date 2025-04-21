@@ -1,78 +1,106 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./ResearchCarousel.css";
+import PVLPhoto from "../assets/images/Pvl Projection.jpeg";
+import Assayvid from "../assets/mmc2.mp4";
+import ModelOne from "../assets/Male Sniffing Behavior.jpeg";
 
 const researchSlides = [
-    {
-        type: "image",
-        src: "/assets/research-infographic1.jpg",
-        alt: "https://www.cell.com/cell/fulltext/S0092-8674(19)31175-4",
-    },
-    {
-        type: "image",
-        src: "/assets/images/Pvl Projection.jpeg",
-        alt: "https://www.cell.com/cell/fulltext/S0092-8674(19)31175-4",
-    },
-    {
-        type: "video",
-        src: "src\assets\mmc2.mp4", // Example video from the Cell article
-        alt: "https://www.cell.com/cell/fulltext/S0092-8674(19)31175-4",
-    },
+  {
+    type: "image",
+    src: ModelOne,
+    alt: "https://www.cell.com/cell/fulltext/S0092-8674(19)31175-4",
+  },
+  {
+    type: "image",
+    src: PVLPhoto,
+    alt: "Periodic Remodeling in a Neural Circuit Governs Timing of Female Sexual Behavior Inoue Sayaka et al. Cell Volume 179 Issue 6 1393 - 1408.e16",
+  },
+  {
+    type: "video",
+    src: Assayvid,
+    alt: "https://www.cell.com/cell/fulltext/S0092-8674(19)31175-4",
+  },
 ];
 
 export default function ResearchCarousel() {
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const videoRef = useRef(null);
 
-    // Autoplay logic
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) =>
-                prevIndex === researchSlides.length - 1 ? 0 : prevIndex + 1
-            );
-        }, 8000); // Change every 8 seconds
+  // Autoplay logic with pause for videos
+  useEffect(() => {
+    if (isPaused) return;
 
-        return () => clearInterval(interval);
-    }, []);
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === researchSlides.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 8000);
 
-    const goToPrevious = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? researchSlides.length - 1 : prevIndex - 1
-        );
-    };
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
-    const goToNext = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === researchSlides.length - 1 ? 0 : prevIndex + 1
-        );
-    };
-
+  // Pause autoplay on video play, resume on end
+  useEffect(() => {
     const currentSlide = researchSlides[currentIndex];
+    if (currentSlide.type === "video" && videoRef.current) {
+      const vid = videoRef.current;
 
-    return (
-        <div className="carousel">
-            <button className="arrow left" onClick={goToPrevious}>
-                &#8656;
-            </button>
+      const handlePlay = () => setIsPaused(true);
+      const handleEnded = () => setIsPaused(false);
 
-            <div className="slide">
-                {currentSlide.type === "image" ? (
-                    <img src={currentSlide.src} alt={currentSlide.alt} />
-                ) : (
-                    <video
-                        src={currentSlide.src}
-                        controls
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="video-slide"
-                    />
-                )}
-                <p className="caption">{currentSlide.alt}</p>
-            </div>
+      vid.addEventListener("play", handlePlay);
+      vid.addEventListener("ended", handleEnded);
 
-            <button className="arrow right" onClick={goToNext}>
-                &#8658;
-            </button>
-        </div>
+      return () => {
+        vid.removeEventListener("play", handlePlay);
+        vid.removeEventListener("ended", handleEnded);
+      };
+    } else {
+      setIsPaused(false);
+    }
+  }, [currentIndex]);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? researchSlides.length - 1 : prevIndex - 1
     );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === researchSlides.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const currentSlide = researchSlides[currentIndex];
+
+  return (
+    <div className="carousel fade">
+      <button className="arrow left" onClick={goToPrevious}>
+        &#8656;
+      </button>
+
+      <div className="slide fade-in">
+        {currentSlide.type === "image" ? (
+          <img src={currentSlide.src} alt={currentSlide.alt} />
+        ) : (
+          <video
+            ref={videoRef}
+            src={currentSlide.src}
+            controls
+            autoPlay
+            muted
+            playsInline
+            className="video-slide"
+          />
+        )}
+        <p className="caption">{currentSlide.alt}</p>
+      </div>
+
+      <button className="arrow right" onClick={goToNext}>
+        &#8658;
+      </button>
+    </div>
+  );
 }
