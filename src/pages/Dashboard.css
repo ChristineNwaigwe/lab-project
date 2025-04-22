@@ -95,6 +95,42 @@ main {
 .profile-image {
   flex-shrink: 0;
 }
+.profile-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-image {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border-radius: 8px; /* optional, just for style */
+}
+
+.hover-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%); /* a bit higher for animation entrance */
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.profile-image-container:hover .hover-button {
+  opacity: 1;
+  transform: translate(-50%, -50%); /* animate downward to center */
+  pointer-events: auto;
+}
+
+
 
 .profile-image img {
   width: 180px;
@@ -120,12 +156,14 @@ main {
   margin-bottom: 0.3rem;
   color: #f4f4f4;
   font-weight: 600;
+  text-align: left;
 }
 
 .profile-info p {
   font-size: 1rem;
   color: #f4f4f4;
   line-height: 1.7;
+  text-align: left;
 }
 
 /* Responsive tweaks */
