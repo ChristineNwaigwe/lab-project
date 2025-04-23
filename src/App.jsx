@@ -1,7 +1,7 @@
 //Special thanks to Jenny Peng '27 for teaching me how to use a router in REACT, this was fun and youre a g//
 //Also huge shoutout to my gf for helping immensly, thank you <3//
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import TeamMembers from "./pages/TeamMembers";
 import Publications from "./pages/Publications";
@@ -30,6 +30,7 @@ function App() {
         </header>
 
         <main className="main-content">
+          <h2>Welcome</h2>
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/publications" element={<Publications />} />
