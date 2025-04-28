@@ -30,7 +30,6 @@ function App() {
         </header>
 
         <main className="main-content">
-          <h2>Welcome</h2>
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/publications" element={<Publications />} />
