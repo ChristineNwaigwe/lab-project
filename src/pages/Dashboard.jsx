@@ -46,7 +46,7 @@ export default function Dashboard() {
               rel="noopener noreferrer"
               className="hover-button"
             >
-              Click to learn more!!
+              Click to learn more
             </a>
           </div>
           <div className="profile-info">

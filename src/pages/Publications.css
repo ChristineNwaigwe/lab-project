@@ -1,81 +1,122 @@
+/* General Layout */
 .publications-container {
-    max-width: 1200px;
-    margin: 4rem auto;
-    padding: 2rem;
-    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 1rem 1rem;
+  background-color: #ffffff;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  line-height: 1.7;
+  color: #2c2c2c;
+}
+
+/* Main Heading */
+.publications-container h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #9E2A2F; /* WashU red */
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.publications-container h2::after {
+  content: '';
+  width: 50px;
+  height: 3px;
+  background-color: #9E2A2F;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 1.5px;
+}
+
+/* Year Group Headings */
+.year-header {
+  font-size: 1.125rem;
+  color: #9e2a2f;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #ddd;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Publication List */
+.results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.results li {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.results a {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #0D3B2A; /* WashU dark green */
+  text-decoration: none;
+}
+
+.results a:hover {
+  color: #9E2A2F;
+  text-decoration: underline;
+}
+
+.results p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Loading Spinner Styling */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.loading-svg {
+  width: 36px;
+  height: 45px;
+}
+/* Fade-in effect */
+.fade-in-member {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-member.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .publications-container {
+    padding: 1.5rem 1rem;
   }
-  
+
   .publications-container h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--wustl-red, #9E2A2F);
-    position: relative;
+    font-size: 1.5rem;
   }
-  
-  .publications-container h2::after {
-    content: '';
-    width: 60px;
-    height: 4px;
-    background-color: var(--wustl-red, #9E2A2F);
-    display: block;
-    margin: 10px auto 0;
-    border-radius: 2px;
+
+  .year-header {
+    font-size: 1rem;
   }
-  
-  .results {
-    list-style: none;
-    padding: 0;
-    margin-top: 2rem;
-    text-align: left;
-  }
-  
-  .results li {
-    margin-bottom: 2.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  
+
   .results a {
-    color: var(--wustl-dark-green, #0D3B2A);
-    font-size: 1.15rem;
-    font-weight: 600;
-    text-decoration: none;
-    line-height: 1.5;
+    font-size: 1rem;
   }
-  
-  .results a:hover {
-    color: var(--wustl-red, #9E2A2F);
-    text-decoration: underline;
-  }
-  
+
   .results p {
-    font-size: 0.95rem;
-    color: #666;
-    margin-top: 5px;
-    font-style: italic;
+    font-size: 0.85rem;
   }
-  
-  /* Responsive for mobile */
-  @media (max-width: 768px) {
-    .publications-container {
-      padding: 1rem;
-    }
-  
-    .publications-container h2 {
-      font-size: 2rem;
-    }
-  
-    .results li {
-      margin-bottom: 2rem;
-    }
-  
-    .results a {
-      font-size: 1rem;
-    }
-  }
-  
+}
