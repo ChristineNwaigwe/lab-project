@@ -12,7 +12,7 @@ body {
 #root {
   max-width: 100%;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  /* padding: 2rem 1rem; */
   text-align: center;
 }
 
@@ -53,7 +53,9 @@ body {
   border-radius: 10px;
   padding: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  margin-top: 80px;
+  margin-top: 5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 /* Header */
@@ -120,6 +122,83 @@ body {
   background-color: #f4f4f4; /* Optional: match your site's bg */
   overflow-x: hidden;
 }
+#wusm-footer {
+  background-color: #000;
+  color: #d9d9d9;
+  padding: 1rem 0 1rem;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+#wusm-footer .wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+#wusm-footer-left .logo {
+  max-height: 50px;
+  width: auto;
+}
+
+#wusm-footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+#wusm-footer-right nav {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+#wusm-footer-right nav a {
+  color: #d9d9d9;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#wusm-footer-right nav a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#wusm-footer #copyright a {
+  color: #888;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+#wusm-footer #copyright a:hover {
+  color: #fff;
+}
+
+/* Mobile responsive tweaks */
+@media (max-width: 768px) {
+  #wusm-footer .wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #wusm-footer-right {
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  #wusm-footer-right nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
 
 
 /* Responsive Layout */

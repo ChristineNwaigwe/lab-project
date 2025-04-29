@@ -209,6 +209,15 @@ main {
 .research h2{
   color: var(--wustl-red)
 }
+.research h2 ::after {
+  content: '';
+  width: 50px;
+  height: 3px;
+  background-color: #9E2A2F;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 1.5px;
+}
 
 .research p {
   font-size: 1rem;

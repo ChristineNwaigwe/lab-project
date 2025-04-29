@@ -41,6 +41,27 @@ function App() {
           <p>&copy; {new Date().getFullYear()} Inoue Lab | Washington University in St. Louis</p>
         </footer>
       </div>
+      <div id="wusm-footer">
+        <div className="wrapper clearfix">
+          <div id="wusm-footer-left">
+            <a href="https://medicine.wustl.edu/">
+              <img src={wustlLogo} alt="WashU Medicine" className="logo" />
+            </a>
+          </div>
+          <div id="wusm-footer-right">
+            <nav>
+              <a className="first-child" href="https://emergency.wustl.edu/">Emergency</a>
+              <a href="/policies/">Policies</a>
+              <a className="last-child" href="/news/">News</a>
+            </nav>
+            <div id="copyright">
+              <a href="https://wustl.edu/about/compliance-policies/intellectual-property-research-policies/copyright-information/">
+                © 2025 Washington University in St. Louis
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </Router>
   );
 }

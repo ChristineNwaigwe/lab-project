@@ -1,12 +1,12 @@
 /* General Layout */
 .publications-container {
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 1rem 1rem;
-  background-color: #ffffff;
-  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
-  line-height: 1.7;
-  color: #2c2c2c;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  /* margin-top: 5rem; */
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 /* Main Heading */
@@ -89,7 +89,8 @@
 .fade-in-member {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  will-change: opacity, transform;
 }
 
 .fade-in-member.is-visible {
