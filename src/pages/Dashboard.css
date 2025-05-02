@@ -188,6 +188,9 @@ main {
     height: 140px;
     margin-bottom: 1rem;
   }
+  .profile img{
+    display: none;
+  }
 }
 
 
@@ -363,6 +366,7 @@ footer {
     width: 140px;
     height: 140px;
     margin-bottom: 20px;
+    display: none;
   }
 
   .research {
