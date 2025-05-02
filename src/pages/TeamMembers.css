@@ -23,26 +23,6 @@
   line-height: 1.2;
 }
 
-/* Search input */
-.search-input {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  width: 60%;
-  max-width: 450px;
-  margin: 0 auto 3rem auto;
-  display: block;
-  border: 1.5px solid var(--wustl-light-green);
-  border-radius: 8px;
-  font-family: var(--font-main);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box;
-}
-
-.search-input:focus {
-  border-color: var(--wustl-red);
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(158, 42, 47, 0.15);
-}
 
 /* Member grid */
 .members-container {
@@ -87,6 +67,25 @@
 
 .member-profile:hover .profile-picture {
   transform: scale(1.05);
+}
+.search-input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  width: 60%;
+  max-width: 450px;
+  margin: 0 auto 3rem auto;
+  display: block;
+  border: 1.5px solid var(--wustl-light-green);
+  border-radius: 8px;
+  font-family: var(--font-main);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  border-color: var(--wustl-red);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(158, 42, 47, 0.15);
 }
 
 /* Name and role */

@@ -247,6 +247,8 @@ body {
 
   .app-container {
     padding: 1.5rem 1rem;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .card {

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./Dashboard.css";
-import ResearchCarousel from "./ResearchCarousel";
+import ResearchCarousel from "./EngagementTiles";
 import PIPhoto from '../assets/SInoue.jpg';
 
 
@@ -64,7 +64,6 @@ export default function Dashboard() {
           </p>
         </section>
         <section className="carousel-container">
-          <h2>Research Highlights</h2>
           <ResearchCarousel />
         </section>
       </div>
