@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "./ResearchCarousel.css";
 import PVLPhoto from "../assets/images/Pvl Projection.jpeg";
-import Assayvid from "../assets/mmc2.mp4";
+// import Assayvid from "../assets/mmc2.mp4";
 import ModelOne from "../assets/Male Sniffing Behavior.jpeg";
 
 const researchSlides = [
@@ -15,11 +15,11 @@ const researchSlides = [
     src: PVLPhoto,
     alt: "Periodic Remodeling in a Neural Circuit Governs Timing of Female Sexual Behavior Inoue Sayaka et al. Cell Volume 179 Issue 6 1393 - 1408.e16",
   },
-  {
-    type: "video",
-    src: Assayvid,
-    alt: "https://www.cell.com/cell/fulltext/S0092-8674(19)31175-4",
-  },
+  // {
+  //   type: "video",
+  //   src: Assayvid,
+  //   alt: "https://www.cell.com/cell/fulltext/S0092-8674(19)31175-4",
+  // },
 ];
 
 export default function ResearchCarousel() {

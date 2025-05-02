@@ -46,6 +46,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  text-align: left;
 }
 
 .results li {
@@ -59,6 +60,7 @@
   font-weight: 500;
   color: #0D3B2A; /* WashU dark green */
   text-decoration: none;
+  text-align: left;
 }
 
 .results a:hover {
@@ -71,6 +73,7 @@
   color: #666;
   margin-top: 4px;
   font-style: italic;
+  text-align: left;
 }
 
 /* Loading Spinner Styling */
@@ -97,6 +100,12 @@
   opacity: 1;
   transform: translateY(0);
 }
+.pubtype {
+  color: #A7110E; /* WUSTL red */
+  font-weight: bold;
+  margin-top: 4px;
+}
+
 
 
 /* Responsive */

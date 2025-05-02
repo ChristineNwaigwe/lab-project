@@ -70,6 +70,16 @@ body {
   margin: 0.5rem 0;
   color: #f3eeee;
 }
+.header h1:after
+{
+  content: '';
+  width: 100px;
+  height: 6px;
+  background-color: #fbf3f3;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 1.5px;
+}
 
 .header p {
   font-size: 1.2rem;

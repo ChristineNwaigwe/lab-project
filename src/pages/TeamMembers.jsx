@@ -80,14 +80,6 @@ export default function TeamMembers() {
     <section className="people">
       <h2>Our Team</h2>
 
-      <input
-        type="text"
-        placeholder="Search team members..."
-        className="search-input"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
-
       <div className="members-container">
         {filteredMembers.map((member, index) => (
           <a

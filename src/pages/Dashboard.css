@@ -206,17 +206,20 @@ main {
   margin-bottom: 1rem;
   color: var(--wustl-dark-green);
 }
-.research h2{
+
+.research h2 {
   color: var(--wustl-red)
 }
-.research h2 ::after {
+
+.research h2:after {
   content: '';
-  width: 50px;
-  height: 3px;
-  background-color: #9E2A2F;
+  width: 100px;
+  height: 6px;
+  background-color: var(--wustl-red);
   display: block;
   margin: 12px auto 0;
   border-radius: 1.5px;
+
 }
 
 .research p {
@@ -275,6 +278,16 @@ footer {
   font-size: 1.8rem;
   margin-bottom: 1.2rem;
   color: var(--wustl-red);
+}
+
+.carousel-container h2:after {
+  content: '';
+  width: 100px;
+  height: 6px;
+  background-color: var(--wustl-red);
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 1.5px;
 }
 
 /* Core Carousel Styles */

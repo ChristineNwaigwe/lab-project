@@ -40,14 +40,6 @@ export default function Dashboard() {
               alt="Sayaka Inoue"
               className="profile-image"
             />
-            <a
-              href="https://psychiatry.wustl.edu/people/sayaka-inoue/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover-button"
-            >
-              Click to learn more
-            </a>
           </div>
           <div className="profile-info">
             <h2>Dr. Sayaka Inoue</h2>

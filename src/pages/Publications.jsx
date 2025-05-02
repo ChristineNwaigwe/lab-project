@@ -4,6 +4,7 @@ import "./Publications.css";
 const Publications = () => {
   const [publications, setPublications] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
   const apiKey = import.meta.env.VITE_PUBMED_API_KEY;
 
   useEffect(() => {
@@ -21,7 +22,9 @@ const Publications = () => {
           )}&retmode=json&api_key=${apiKey}`
         );
         const summaryData = await summaryResponse.json();
-        const articles = Object.values(summaryData.result).filter((item) => item.uid);
+        const articles = Object.values(summaryData.result).filter(
+          (item) => item.uid
+        );
 
         setPublications(articles);
       } catch (err) {
@@ -34,8 +37,19 @@ const Publications = () => {
     fetchPublications();
   }, [apiKey]);
 
-  const groupedByYear = publications.reduce((acc, article) => {
-    const year = article.pubdate.split(" ")[0];
+  // Filter publications based on search query (title or pubtype)
+  const filteredPublications = publications.filter((article) => {
+    const query = searchQuery.toLowerCase();
+    const titleMatch = article.title?.toLowerCase().includes(query);
+    const pubtypeMatch = article.pubtype?.some((type) =>
+      type.toLowerCase().includes(query)
+    );
+    return titleMatch || pubtypeMatch;
+  });
+
+  // Group filtered publications by year
+  const groupedByYear = filteredPublications.reduce((acc, article) => {
+    const year = article.pubdate?.split(" ")[0] || "Unknown";
     if (!acc[year]) acc[year] = [];
     acc[year].push(article);
     return acc;
@@ -44,6 +58,13 @@ const Publications = () => {
   return (
     <div className="publications-container">
       <h2>Recent Publications</h2>
+      <input
+        type="text"
+        placeholder="Search Publications..."
+        className="search-input"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
       {loading ? (
         <div className="loader-container">
           <svg
@@ -151,27 +172,37 @@ const Publications = () => {
           </svg>
         </div>
       ) : (
-        Object.keys(groupedByYear).sort((a, b) => b - a).map((year) => (
-          <div key={year} className={`fade-in-member ${!loading ? 'is-visible' : ''}`}>
-            <h3 className="year-header">{year}</h3>
-            <ul className="results">
-              {groupedByYear[year].map((article) => (
-                <li key={article.uid}>
-                  <a
-                    href={`https://pubmed.ncbi.nlm.nih.gov/${article.uid}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {article.title}
-                  </a>
-                  <p>
-                    <em>{article.source}</em> ({article.pubdate})
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
+        Object.keys(groupedByYear)
+          .sort((a, b) => b - a)
+          .map((year) => (
+            <div
+              key={year}
+              className={`fade-in-member ${!loading ? "is-visible" : ""}`}
+            >
+              <h3 className="year-header">{year}</h3>
+              <ul className="results">
+                {groupedByYear[year].map((article) => (
+                  <li key={article.uid}>
+                    <a
+                      href={`https://pubmed.ncbi.nlm.nih.gov/${article.uid}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {article.title}
+                    </a>
+                    <p>
+                      <em>{article.source}</em> ({article.pubdate})
+                    </p>
+                    {article.pubtype && (
+                      <p className="pubtype">
+                        {article.pubtype.join(", ")}
+                      </p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
       )}
     </div>
   );
