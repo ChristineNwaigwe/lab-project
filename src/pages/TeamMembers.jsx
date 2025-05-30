@@ -1,8 +1,7 @@
-//Huge shouout to Shaza Ali for helping with the project//
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./TeamMembers.css";
 
-// Importing images
+// Images
 import PIPhoto from "../assets/images/PI-photo.jpg";
 import takaPhoto from "../assets/images/taka.jpg";
 import christinePhoto from "../assets/images/christine.jpeg";
@@ -13,18 +12,6 @@ import paulPhoto from "../assets/images/paul.jpg";
 
 export default function TeamMembers() {
   const [searchQuery, setSearchQuery] = useState("");
-
-  useEffect(() => {
-    const faders = document.querySelectorAll(".fade-in-member");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-        }
-      });
-    });
-    faders.forEach((el) => observer.observe(el));
-  }, []);
 
   const members = [
     {
@@ -45,41 +32,46 @@ export default function TeamMembers() {
       image: christinePhoto,
       link: "https://www.linkedin.com/in/christine-nwaigwe-67963a267/",
     },
-     {
+    {
       name: "Atharv Kulkarni",
       role: "Lab Technician",
-      image: atharvPhoto, // Imported image variable
+      image: atharvPhoto,
       link: "https://example.com/atharv-profile",
     },
     {
       name: "Aditi Ashwin",
       role: "Rotating PhD Candidate",
-      image: aditiPhoto, // Imported image variable
+      image: aditiPhoto,
       link: "https://example.com/aditi-profile",
     },
     {
       name: "Steven Kim",
       role: "Undergraduate Research Assistant",
-      image: stevenPhoto, // Imported image variable
+      image: stevenPhoto,
       link: "https://example.com/steven-profile",
     },
     {
       name: "Paul Kwon",
       role: "Undergraduate Research Assistant",
-      image: paulPhoto, // Imported image variable
+      image: paulPhoto,
       link: "https://example.com/paul-profile",
     },
   ];
 
-  // Filter members based on search input
   const filteredMembers = members.filter((member) =>
     `${member.name} ${member.role}`.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
     <section className="people">
-      <h2>Our Team</h2>
-
+      <h2 className="team-title">Meet Our Team</h2>
+      {/* <input
+        type="text"
+        placeholder="Search by name or role..."
+        className="search-input"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      /> */}
       <div className="members-container">
         {filteredMembers.map((member, index) => (
           <a
@@ -87,11 +79,13 @@ export default function TeamMembers() {
             href={member.link}
             target="_blank"
             rel="noreferrer"
-            className="member-profile fade-in-member"
+            className="member-card"
           >
-            <img src={member.image} alt={member.name} className="profile-picture" />
-            <p><strong>{member.name}</strong></p>
-            <p>{member.role}</p>
+            <img src={member.image} alt={member.name} className="member-photo" />
+            <div>
+              <p className="member-name">{member.name}</p>
+              <p className="member-role">{member.role}</p>
+            </div>
           </a>
         ))}
         {filteredMembers.length === 0 && (

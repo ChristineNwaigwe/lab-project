@@ -1,183 +1,88 @@
 :root {
   --wustl-red: #9E2A2F;
-  --wustl-dark-green: #0D3B2A;
-  --wustl-light-green: #215732;
-  --wustl-gray: #f4f4f4;
-  --font-main: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --text-color: #333;
+  --bg-color: #fff;
+  --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-heading: 'Georgia', serif;
 }
 
 .people {
-  padding: 4rem 2rem;
-  background-color: var(--wustl-gray);
-  text-align: center;
+  padding: 3rem 1rem;
+  background-color: var(--bg-color);
   font-family: var(--font-main);
-  box-sizing: border-box;
-}
-
-.people h2 {
-  font-size: 2.75rem;
-  color: var(--wustl-red);
-  margin-bottom: 2.5rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  line-height: 1.2;
-}
-
-
-/* Member grid */
-.members-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 1rem;
-  box-sizing: border-box;
 }
 
-/* Member card */
-.member-profile {
-  background-color: white;
-  border-radius: 12px;
-  padding: 2rem 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  color: var(--wustl-dark-green);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e3e3e3;
-  box-sizing: border-box;
-}
-
-.member-profile:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-}
-
-/* Profile picture */
-.profile-picture {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid var(--wustl-light-green);
-  margin-bottom: 1rem;
-  transition: transform 0.3s ease;
-}
-
-.member-profile:hover .profile-picture {
-  transform: scale(1.05);
-}
-.search-input {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  width: 60%;
-  max-width: 450px;
-  margin: 0 auto 3rem auto;
-  display: block;
-  border: 1.5px solid var(--wustl-light-green);
-  border-radius: 8px;
-  font-family: var(--font-main);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box;
-}
-
-.search-input:focus {
-  border-color: var(--wustl-red);
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(158, 42, 47, 0.15);
-}
-
-/* Name and role */
-.member-profile p {
-  margin: 0.25rem 0;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.member-profile strong {
-  font-size: 1.15rem;
+.team-title {
+  font-size: 2.2rem;
   color: var(--wustl-red);
+  font-family: var(--font-heading);
+  margin-bottom: 3rem;
+  text-align: center;
 }
 
-/* Fade-in Animation */
-.fade-in-member {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+/* Members vertical list */
+.members-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.fade-in-member.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Member card - horizontal layout */
+.member-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1.5rem;
 }
 
-/* No results */
-.no-results {
+.member-photo {
+  width: 160px;
+  height: 30vh;
+  object-fit: cover;
+  object-position: top;
+  flex-shrink: 0;
+  border: 1px solid #ddd;
+}
+
+/* Text next to photo */
+.member-card div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.member-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+.member-role {
+  font-size: 1rem;
   font-style: italic;
-  color: #777;
-  margin-top: 2rem;
+  color: #666;
+  margin: 0;
 }
 
-/* ─────────────────────────────── */
-/*      RESPONSIVE BREAKPOINTS     */
-/* ─────────────────────────────── */
-@media (max-width: 768px) {
-  .people h2 {
-    font-size: 2.25rem;
+@media (max-width: 600px) {
+  .member-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  .search-input {
-    width: 85%;
-  }
-
-  .profile-picture {
-    width: 100px;
-    height: 100px;
-  }
-
-  .member-profile {
-    padding: 1.5rem 1rem;
-  }
-
-  .member-profile p {
-    font-size: 0.95rem;
-  }
-
-  .member-profile strong {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .people {
-    padding: 3rem 1rem;
-  }
-
-  .people h2 {
-    font-size: 2rem;
-  }
-
-  .search-input {
+  .member-photo {
     width: 100%;
+    max-width: 200px;
+    height: auto;
   }
 
-  .profile-picture {
-    width: 90px;
-    height: 90px;
-  }
-
-  .member-profile {
-    padding: 1.2rem;
-  }
-
-  .member-profile p {
-    font-size: 0.9rem;
-  }
-
-  .member-profile strong {
-    font-size: 0.95rem;
+  .member-card div {
+    align-items: center;
   }
 }
-
-/* adding mobile responsiveness */

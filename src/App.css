@@ -70,8 +70,8 @@ body {
   margin: 0.5rem 0;
   color: #f3eeee;
 }
-.header h1:after
-{
+
+.header h1:after {
   content: '';
   width: 100px;
   height: 6px;
@@ -253,6 +253,14 @@ body {
 
   .card {
     padding: 1rem;
+  }
+
+  .footer,
+  #wusm-footer {
+    padding: 10px 10px;
+    width: 100vh;
+    margin: 0 auto;
+
   }
 }
 
