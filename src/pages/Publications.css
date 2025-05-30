@@ -40,6 +40,26 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #A7110E;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-input:focus {
+  border-color: #ff3b30;
+  background-color: #fff8f8;
+}
+
+.search-input::placeholder {
+  color: #bbb;
+  font-style: italic;
+}
 
 /* Publication List */
 .results {
