@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "./Dashboard.css";
+// import "./Contact";
 import ResearchCarousel from "./EngagementTiles";
 import PIPhoto from '../assets/SInoue.jpg';
 
@@ -42,8 +43,8 @@ export default function Dashboard() {
             />
           </div>
           <div className="profile-info">
-            <h2>Dr. Sayaka Inoue</h2>
-            <p>Associate Professor, Department of Psychiatry</p>
+            <h2>Sayaka Inoue, PhD</h2>
+            <p>Assistant Professor, Department of Psychiatry</p>
             <p>
               Dr. Inoue’s research explores the neurobiological mechanisms
               underlying psychiatric disorders. Her work focuses on using
@@ -68,7 +69,7 @@ export default function Dashboard() {
         </section>
       </div>
       {/* Embedded Google Map */}
-      <div className="fade-in-section map-container">
+      {/* <div className="fade-in-section map-container">
         <h2>Visit the Lab</h2>
         <p>4559 Scott Ave, St. Louis, MO, USA</p>
         <div className="map-embed">
@@ -83,7 +84,7 @@ export default function Dashboard() {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-      </div>
+      </div> */}
 
     </>
   );
