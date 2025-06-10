@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import "./TeamMembers.css";
 
 // Images
@@ -11,7 +11,28 @@ import stevenPhoto from "../assets/images/Steven.jpg";
 import paulPhoto from "../assets/images/paul.jpg";
 
 export default function TeamMembers() {
-  const [searchQuery, setSearchQuery] = useState("");
+  useEffect(() => {
+    const faders = document.querySelectorAll(".fade-in-section, .member-card");
+
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px",
+    };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach((fader) => {
+      appearOnScroll.observe(fader);
+    });
+
+    return () => appearOnScroll.disconnect(); // Clean up
+  }, []);
 
   const members = [
     {
@@ -58,40 +79,28 @@ export default function TeamMembers() {
     },
   ];
 
-  const filteredMembers = members.filter((member) =>
-    `${member.name} ${member.role}`.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
   return (
-    <section className="people">
-      <h2 className="team-title">Meet Our Team</h2>
-      {/* <input
-        type="text"
-        placeholder="Search by name or role..."
-        className="search-input"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      /> */}
-      <div className="members-container">
-        {filteredMembers.map((member, index) => (
-          <a
-            key={index}
-            href={member.link}
-            target="_blank"
-            rel="noreferrer"
-            className="member-card"
-          >
-            <img src={member.image} alt={member.name} className="member-photo" />
-            <div>
-              <p className="member-name">{member.name}</p>
-              <p className="member-role">{member.role}</p>
-            </div>
-          </a>
-        ))}
-        {filteredMembers.length === 0 && (
-          <p className="no-results">No team members found.</p>
-        )}
-      </div>
-    </section>
+    <div className="fade-in-section">
+      <section className="people">
+        <h2 className="team-title">Meet Our Team</h2>
+        <div className="members-container">
+          {members.map((member, index) => (
+            <a
+              key={index}
+              href={member.link}
+              target="_blank"
+              rel="noreferrer"
+              className="member-card fade-in-section"
+            >
+              <img src={member.image} alt={member.name} className="member-photo" />
+              <div>
+                <p className="member-name">{member.name}</p>
+                <p className="member-role">{member.role}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }

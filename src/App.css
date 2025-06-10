@@ -19,7 +19,7 @@ body {
 /* Logo Styling */
 .logo {
   height: 5em;
-  padding: 1em;
+  padding: 0rem;
   transition: filter 300ms ease;
 }
 
@@ -32,15 +32,6 @@ body {
 }
 
 /* Spinning Animation */
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .logo.react {
@@ -67,7 +58,7 @@ body {
 
 .header h1 {
   font-size: 2.8rem;
-  margin: 0.5rem 0;
+  margin: 0rem 0;
   color: #f3eeee;
 }
 
