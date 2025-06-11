@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import WUSMBanner from "./pages/WUSMBanner";
 import "./App.css";
 import wustlLogo from './assets/wustl.svg';
+import LabGallery from "./pages/LabGallery";
 function App() {
   return (
     <Router>
@@ -27,7 +28,9 @@ function App() {
             <Link to="/">Home</Link> |{" "}
             <Link to="/publications">Publications</Link> |{" "}
             <Link to="/teammembers">Lab Members</Link> |{" "}
-            <Link to="/contact">Contact Us</Link> {" "}
+            <Link to="/contact">Contact Us</Link> |{" "}
+            <Link to="/labgallery">Lab News</Link> {" "}
+
           </nav>
         </header>
 
@@ -37,6 +40,8 @@ function App() {
             <Route path="/publications" element={<Publications />} />
             <Route path="/teammembers" element={<TeamMembers />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/labgallery" element={<LabGallery />} />
+
           </Routes>
         </main>
 
