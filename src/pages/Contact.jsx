@@ -11,7 +11,7 @@ export default function Contact() {
         <div className="contact-content">
           <div className="contact-info">
             <p><strong>Address:</strong><br />4559 Scott Ave<br />St. Louis, MO 63110<br />USA</p>
-            <p><strong>Email:</strong> <a href="mailto:sayaka@wustl.edu">sayaka@wustl.edu</a></p>
+            <p><strong>Email:</strong> <a href="mailto:sinouelabwustl@gmail.com">sinouelabwustl@gmail.com</a></p>
             <p><strong>Phone:</strong> (314) 362-3142</p>
           </div>
 

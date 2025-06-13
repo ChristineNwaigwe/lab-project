@@ -28,9 +28,9 @@ const media = [
 
 const news = [
   {
-    title: "Spring Poster Session",
-    date: "May 2025",
-    description: "Our team presented exciting results at the departmental spring symposium.",
+    title: "Christine Nwaigwe wins George Washington Mcleod Award",
+    date: "April 2025",
+    description: "Congratulations to our Christine for winning this award! The George Washington Carver award recoginizes young researches of whom aim to uplift both the scientific and Black communtiy.",
   },
   {
     title: "Lab Bowling Event",

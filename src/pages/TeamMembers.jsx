@@ -9,6 +9,8 @@ import aditiPhoto from "../assets/images/Aditi.jpeg";
 import atharvPhoto from "../assets/images/Atharv.jpg";
 import stevenPhoto from "../assets/images/Steven.jpg";
 import paulPhoto from "../assets/images/paul.jpg";
+import fernandaphoto from "../assets/images/fernandaphoto.jpg";
+
 
 export default function TeamMembers() {
   useEffect(() => {
@@ -39,43 +41,43 @@ export default function TeamMembers() {
       name: "Sayaka Inoue",
       role: "Principal Investigator",
       image: PIPhoto,
-      link: "https://profiles.wustl.edu/en/persons/sayaka-inoue",
+      // link: "https://profiles.wustl.edu/en/persons/sayaka-inoue",
     },
     {
       name: "Takahiro Sasaki",
       role: "Post-Doctorate Fellow",
       image: takaPhoto,
-      link: "https://scholar.google.co.jp/citations?hl=ja&user=uqCKeacAAAAJ",
+      description: "JSPS Overseas Research Fellow",
     },
     {
       name: "Christine Nwaigwe",
       role: "Research Assistant",
       image: christinePhoto,
-      link: "https://www.linkedin.com/in/christine-nwaigwe-67963a267/",
+      description: "NIH BP-ENDURE Research Fellow",
     },
     {
       name: "Atharv Kulkarni",
       role: "Lab Technician",
       image: atharvPhoto,
-      link: "https://example.com/atharv-profile",
+      // link: "https://example.com/atharv-profile",
     },
     {
-      name: "Aditi Ashwin",
-      role: "Rotating PhD Candidate",
-      image: aditiPhoto,
-      link: "https://example.com/aditi-profile",
+      name: "Fernanda Bucio",
+      role: "Undergraduate Researcher",
+      image: fernandaphoto,
+      description: "Amgen Scholar",
     },
     {
       name: "Steven Kim",
       role: "Undergraduate Research Assistant",
       image: stevenPhoto,
-      link: "https://example.com/steven-profile",
+      // link: "https://example.com/steven-profile",
     },
     {
       name: "Paul Kwon",
       role: "Undergraduate Research Assistant",
       image: paulPhoto,
-      link: "https://example.com/paul-profile",
+      // link: "https://example.com/paul-profile",
     },
   ];
 
@@ -96,6 +98,7 @@ export default function TeamMembers() {
               <div>
                 <p className="member-name">{member.name}</p>
                 <p className="member-role">{member.role}</p>
+                <p className="member-description">{member.description}</p>
               </div>
             </a>
           ))}
